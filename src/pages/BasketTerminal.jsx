@@ -31,6 +31,7 @@ const BasketTerminal = ({ setGoods }) => {
     <>
     <BasketTerminalHeader handleSubmit={handleSubmit}/>
     <BasketTerminalMain 
+    handleSubmit={handleSubmit}
     setProductType={setProductType}
     setSku={setSku}
      setName={setName}
