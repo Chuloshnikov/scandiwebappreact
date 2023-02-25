@@ -15,7 +15,7 @@ const BasketTerminalMain = ({ handleSubmit, setSku, setName, setPrice, productTy
       autoComplete="off"
     >
         <TextField id="standard-basic" label="SKU" value={sku} variant="standard" onChange={(e) => setSku(e.target.value)}/>
-        <TextField id="standard-basic" label="Name"value={name} variant="standard" onChange={(e) => setName(e.target.value)}/>
+        <TextField id="standard-basic" label="Name" value={name} variant="standard" onChange={(e) => setName(e.target.value)}/>
         <TextField id="standard-basic" label="Price" value={price} variant="standard" onChange={(e) => setPrice(e.target.value)}/>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Switcher</InputLabel>
