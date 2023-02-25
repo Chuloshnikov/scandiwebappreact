@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useContext } from "react";
-import { ColorModeContext, tokens } from "../theme";
+import { ColorModeContext } from "../theme";
 import { styled, alpha } from '@mui/material/styles';
 import { Box, AppBar, IconButton, Toolbar, Typography, InputBase, Stack, Button, Menu, MenuItem, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -19,13 +19,12 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 const BasketHeader = () => {
 
     const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
     const[open, setOpen] = useState(false);
 
 
   return (
-    <Box sx={{ flexGrow: 1, justifyContent: "space-between"}}>
+    <Box sx={{ flexGrow: 1, justifyContent: "space-between" }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -35,7 +34,7 @@ const BasketHeader = () => {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon sx={{display: {xs:"block" , sm: "none"}}} onClick={e => setOpen(true)} sx={{width: 30, height: 30}}/>
+            <MenuIcon sx={{display: {xs:"block" , sm: "none"}}} onClick={() => setOpen(!open)} sx={{width: 30, height: 30}}/>
           </IconButton>
           <Typography
             variant="h6"
@@ -53,10 +52,11 @@ const BasketHeader = () => {
                 <StyledInputBase
                     placeholder="Search…"
                     inputProps={{ 'aria-label': 'search' }}
+                    type="text"
                     />
           </Search>
             <Stack spacing={1} direction="row">
-                    <Button variant="contained" sx={{display: {xs: "none" , sm: "block"}}}>ADD</Button>
+                    <Button variant="contained" sx={{display: {xs: "none" , sm: "block"}}}><Link to="/basket-terminal">ADD</Link></Button>
                     <Button variant="contained" sx={{display: {xs: "none" , sm: "block"}}}>Delete</Button>
                     <IconButton onClick={colorMode.toggleColorMode}>
                         {theme.palette.mode === 'dark' ? ( <DarkModeOutlinedIcon /> ) : ( <LightModeOutlinedIcon /> )}

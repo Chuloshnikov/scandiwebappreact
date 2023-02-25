@@ -20,7 +20,7 @@ function createData(name, calories, fat, carbs, protein) {
     createData('Gingerbread', 356, 16.0, 49, 3.9),
   ];
 
-const BasketMain = () => {
+const BasketMain = ( {goods} ) => {
   return (
     <TableContainer component={Paper}>
       <Table  aria-label="simple table">
