@@ -3,11 +3,11 @@ import BasketHeader from '../components/BasketHeader';
 import BasketMain from '../components/BasketMain';
 
 
-const Basket = () => {
+const Basket = ({ goods }) => {
   return (
     <>
     <BasketHeader/>
-    <BasketMain/>
+    <BasketMain goods={goods}/>
     </>
   )
 }
