@@ -22,9 +22,9 @@ const BasketMain = ( {goods} ) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {goods.map((row, index) => (
+          {goods.map((row) => (
             <TableRow
-              key={indexedDB}
+              key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
