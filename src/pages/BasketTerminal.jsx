@@ -15,15 +15,21 @@ const BasketTerminal = ({ setGoods }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();  
-      setGoods(sku, name, price, productType);
+    const product = {id: uuid(), sku, name, price, productType};
+    //add product in the goods arr
+    if (sku && name && price && productType) {
+      setGoods(prevGoods => [product, ...prevGoods])
       setSku("");
       setName("");
       setPrice("");
       setProductType("");
 
-          //redirect to home page
-          navigate('/');
+      //redirect to home page
+      navigate('/');
+    }
   }
+
+
 
 
 
