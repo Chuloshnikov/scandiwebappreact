@@ -5,8 +5,8 @@ import { Box, InputLabel, MenuItem, FormControl, Select, TextField } from "@mui/
 const BasketTerminalMain = ({ handleSubmit, setSku, setName, setPrice, productType, setProductType, sku, price, name }) => {
 
 
-  const handleChange = (value) => {
-    setProductType(value.target.value);
+  const handleChange = (e) => {
+    setProductType(e.target.value);
   }
 
   return (
@@ -19,16 +19,17 @@ const BasketTerminalMain = ({ handleSubmit, setSku, setName, setPrice, productTy
       }}
       autoComplete="off"
     >
-        <TextField type="text" id="standard-basic" label="SKU" variant="standard" onChange={(e) => setSku(e.target.value)}/>
-        <TextField type="text" id="standard-basic" label="Name" variant="standard" onChange={(e) => setName(e.target.value)}/>
-        <TextField type="text" id="standard-basic" label="Price" variant="standard" onChange={(e) => setPrice(e.target.value)}/>
+        <TextField type="text" id="standard-basic" value={sku} label="SKU" variant="standard" onChange={(e) => setSku(e.target.value)}/>
+        <TextField type="text" id="standard-basic" value={name} label="Name" variant="standard" onChange={(e) => setName(e.target.value)}/>
+        <TextField type="number" id="standard-basic" value={price} label="Price" variant="standard" onChange={(e) => setPrice(e.target.value)}/>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Switcher</InputLabel>
+          <InputLabel id="product-type">Switcher</InputLabel>
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
+              labelId="product-type"
+              id="product-type"
               type="text"
               label="Switcher"
+              value={productType}
               onChange={handleChange}
             >
               <MenuItem value={"Book"}>Book</MenuItem>

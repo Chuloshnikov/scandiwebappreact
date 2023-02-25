@@ -35,7 +35,7 @@ const BasketTerminalHeader = ({ handleSubmit }) => {
           </Typography>
           <Box  sx={{display: 'flex', gap: "8px"}} justifyContent="center">
             <Stack sx={{alignSelf: "flex-end"}} spacing={1} direction="row">
-                    <Button variant="contained" onSubmit={handleSubmit}>Save</Button>
+                    <Button variant="contained" onClick={handleSubmit}>Save</Button>
                     <Button variant="contained"><Link to="/">Back</Link></Button>
                     <IconButton onClick={colorMode.toggleColorMode}>
                         {theme.palette.mode === 'dark' ? ( <DarkModeOutlinedIcon /> ) : ( <LightModeOutlinedIcon /> )}

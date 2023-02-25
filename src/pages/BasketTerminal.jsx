@@ -8,7 +8,7 @@ const BasketTerminal = ({ setGoods }) => {
 
   const [sku, setSku] = useState('');
   const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState();
   const [productType, setProductType] = useState('');
   const navigate = useNavigate();
 
@@ -27,11 +27,16 @@ const BasketTerminal = ({ setGoods }) => {
   }
 }
 
+
   return (
     <>
     <BasketTerminalHeader handleSubmit={handleSubmit}/>
     <BasketTerminalMain 
     handleSubmit={handleSubmit}
+    productType={productType}
+    sku={sku}
+    name={name}
+    price={price}
     setProductType={setProductType}
     setSku={setSku}
      setName={setName}
