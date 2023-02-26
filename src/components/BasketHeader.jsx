@@ -35,7 +35,7 @@ const BasketHeader = ({ handleSearch, handleDeleteCheckedItems, setText}) => {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2, display: {xs:"block" , sm: "none"} }}
           >
             <MenuIcon sx={{display: {xs:"block" , sm: "none"}}} onClick={() => setOpen(!open)} sx={{width: 30, height: 30}}/>
           </IconButton>
@@ -76,10 +76,11 @@ const BasketHeader = ({ handleSearch, handleDeleteCheckedItems, setText}) => {
             </Stack>
           </Box>
         </Toolbar>
-        <Menu 
+        <Box>
+          <Menu 
             bgcolor="otherColor"
-            id="demo-positioned-menu"
-            aria-labelledby="demo-positioned-button"
+            id="BurgerMenu"
+            aria-labelledby="BurgerMenu"
             open={open}
             onClose={e => setOpen(false)}
             anchorOrigin={{
@@ -90,12 +91,11 @@ const BasketHeader = ({ handleSearch, handleDeleteCheckedItems, setText}) => {
             vertical: 'top',
             horizontal: 'right',
             }}
-
         >
         <Link to="/basket-terminal"><MenuItem>ADD</MenuItem></Link>
-        <MenuItem>Delete</MenuItem>
-        
-      </Menu>
+        <MenuItem onClick={handleDeleteCheckedItems}>Delete</MenuItem>  
+        </Menu>
+      </Box>
       </AppBar>
     </Box>
   )
