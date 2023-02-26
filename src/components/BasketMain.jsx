@@ -10,7 +10,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 
 
-const BasketMain = ({ goods, checkedItemIds, setCheckedItemIds }) => {
+const BasketMain = ({ filteredGoods, checkedItemIds, setCheckedItemIds }) => {
 
 
   return (
@@ -26,7 +26,7 @@ const BasketMain = ({ goods, checkedItemIds, setCheckedItemIds }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {goods.map((row) => (
+          {filteredGoods.map((row) => (
             <TableRow
               key={row.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

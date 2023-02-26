@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useContext } from "react";
 import { ColorModeContext } from "../theme";
 import { styled, alpha } from '@mui/material/styles';
@@ -16,12 +16,15 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 
 
-const BasketHeader = ({ handleDeleteCheckedItems}) => {
+const BasketHeader = ({ handleSearch, handleDeleteCheckedItems, setText}) => {
 
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
     const[open, setOpen] = useState(false);
 
+    
+
+   
 
   return (
     <Box sx={{ flexGrow: 1, justifyContent: "space-between" }}>
@@ -53,6 +56,7 @@ const BasketHeader = ({ handleDeleteCheckedItems}) => {
                     placeholder="Search…"
                     inputProps={{ 'aria-label': 'search' }}
                     type="text"
+                    onChange={(event) => {setText(event.target.value); handleSearch();}}
                     />
           </Search>
             <Stack spacing={1} direction="row">
