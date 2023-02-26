@@ -16,23 +16,15 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 
 
-const BasketHeader = ({ goods, handleDeleteCheckedItems}) => {
+const BasketHeader = ({ handleSearch, handleDeleteCheckedItems, setText}) => {
 
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
-    const [text, setText] = useState('');
-    const [filteredGoods, setFilteredGoods] = useState(goods);
     const[open, setOpen] = useState(false);
 
-    const handleSearch = () => {
-      setFilteredGoods(goods.filter((item) => {
-        if (item.name.toLowerCase().match(text.toLocaleLowerCase())){
-          return item;
-        }
-      }))
-    }
+    
 
-    useEffect(handleSearch, [text]);
+   
 
   return (
     <Box sx={{ flexGrow: 1, justifyContent: "space-between" }}>
