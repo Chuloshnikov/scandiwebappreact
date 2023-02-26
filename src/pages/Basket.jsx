@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import BasketHeader from '../components/BasketHeader';
 import BasketMain from '../components/BasketMain';
 
@@ -6,7 +6,9 @@ import BasketMain from '../components/BasketMain';
 const Basket = ({ goods, setGoods }) => {
 
   const [checkedItemIds, setCheckedItemIds] = useState([]);
-  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+  
+  const [text, setText] = useState('');
+  const [filteredGoods, setFilteredGoods] = useState(goods);
   
 
   const handleDeleteCheckedItems = () => {
@@ -20,11 +22,21 @@ const Basket = ({ goods, setGoods }) => {
     window.location.reload();
   }
 
+  const handleSearch = () => {
+    setFilteredGoods(goods.filter((item) => {
+      if (item.name.toLowerCase().match(text.toLocaleLowerCase())){
+        return item;
+      }
+    }))
+  }
+
+  useEffect(handleSearch, [text]);
+
 
   return (
     <>
-    <BasketHeader handleDeleteCheckedItems={handleDeleteCheckedItems}/>
-    <BasketMain goods={goods} checkedItemIds={checkedItemIds} setCheckedItemIds={setCheckedItemIds}/>
+    <BasketHeader setText={setText}  handleSearch={handleSearch} goods={goods} handleDeleteCheckedItems={handleDeleteCheckedItems}/>
+    <BasketMain filteredGoods={filteredGoods} goods={goods} checkedItemIds={checkedItemIds} setCheckedItemIds={setCheckedItemIds}/>
     </>
   )
 }
