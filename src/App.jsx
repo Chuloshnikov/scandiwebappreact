@@ -7,10 +7,11 @@ import BasketTerminal from "./pages/BasketTerminal";
 
 
 
-function App() {
+const App = () => {
 
   const [theme, colorMode] = useMode();
   const [goods, setGoods] = useState(JSON.parse(localStorage.getItem('goods')) || []);
+ 
 
 
   useEffect(() => {
