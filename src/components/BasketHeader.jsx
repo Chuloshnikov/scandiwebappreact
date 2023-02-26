@@ -16,7 +16,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 
 
-const BasketHeader = () => {
+const BasketHeader = ({ handleDeleteCheckedItems}) => {
 
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
@@ -57,7 +57,7 @@ const BasketHeader = () => {
           </Search>
             <Stack spacing={1} direction="row">
                     <Button variant="contained" sx={{display: {xs: "none" , sm: "block"}}}><Link to="/basket-terminal">ADD</Link></Button>
-                    <Button variant="contained" sx={{display: {xs: "none" , sm: "block"}}}>Delete</Button>
+                    <Button variant="contained" sx={{display: {xs: "none" , sm: "block"}}} onClick={handleDeleteCheckedItems}>Delete</Button>
                     <IconButton onClick={colorMode.toggleColorMode}>
                         {theme.palette.mode === 'dark' ? ( <DarkModeOutlinedIcon /> ) : ( <LightModeOutlinedIcon /> )}
                     </IconButton>
