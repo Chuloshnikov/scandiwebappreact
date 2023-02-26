@@ -19,10 +19,11 @@ const Basket = ({ goods, setGoods }) => {
 
     if (checkedItemIds.length !== 0) {
     if (window.confirm('You sure you want to delete this products?')) {
-    const checkedItems = goods.filter(item => checkedItemIds.includes(item.id));
-    const uncheckedItems = goods.filter(item => !checkedItemIds.includes(item.id));
+    const checkedItems = filteredGoods.filter(item => checkedItemIds.includes(item.id));
+    const uncheckedItems = filteredGoods.filter(item => !checkedItemIds.includes(item.id));
     localStorage.setItem('goods', JSON.stringify(uncheckedItems));
-    setGoods(...uncheckedItems);
+    setFilteredGoods(uncheckedItems);
+    setGoods(uncheckedItems);
     setCheckedItemIds([]);
       }
     }
